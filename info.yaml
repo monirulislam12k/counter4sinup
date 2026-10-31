@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "4-bit Down Counter"      # প্রজেক্টের নাম
+  title:        "tt_um_example"      # প্রজেক্টের নাম
   description:  "A simple 4-bit down counter using Verilog template" # প্রজেক্টের বর্ণনা
   author:       "monirulislam12k"         # আপনার নাম
   discord:      ""                        # খালি রাখতে পারেন
@@ -11,7 +11,7 @@ project:
 tiles: "1x1"
 
 # Your top level module name!
-name: "counter4sinup"                     # 💡 আপনার মেইন মডিউলের নাম (cells.v ফাইলের নামের সাথে মিল রেখে)
+name: "tt_um_example"                     # 💡 আপনার মেইন মডিউলের নাম (cells.v ফাইলের নামের সাথে মিল রেখে)
 
 # Pinout documentation
 pinout:
