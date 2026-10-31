@@ -1,0 +1,30 @@
+name: gds
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  gds:
+    # Skip the template's auto-generated initial commit (info.yaml is still a placeholder)
+    if: ${{ !(github.event.created && github.ref_name == github.event.repository.default_branch && github.event.head_commit.message == 'Initial commit') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Build GDS
+        uses: TinyTapeout/tt-gds-action@ttihp27a
+        with:
+          pdk: ihp-sg13cmos5l # or ihp-sg13g2
+
+  viewer:
+    needs: gds
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    steps:
+      - uses: TinyTapeout/tt-gds-action/viewer@ttihp27a
